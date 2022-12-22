@@ -1,0 +1,6 @@
+C:\Users\rumeysa\source\repos\WebProje\EntityLayer\bin\Debug\EntityLayer.dll
+C:\Users\rumeysa\source\repos\WebProje\EntityLayer\bin\Debug\EntityLayer.pdb
+C:\Users\rumeysa\source\repos\WebProje\EntityLayer\obj\Debug\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\rumeysa\source\repos\WebProje\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\rumeysa\source\repos\WebProje\EntityLayer\obj\Debug\EntityLayer.dll
+C:\Users\rumeysa\source\repos\WebProje\EntityLayer\obj\Debug\EntityLayer.pdb
