@@ -23,7 +23,11 @@ namespace WebProje.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Sahiplenme()
+        {
+            return View();
+        }
+        public IActionResult HayvanKayit()
         {
             return View();
         }

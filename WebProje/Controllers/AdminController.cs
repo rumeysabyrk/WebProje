@@ -22,8 +22,8 @@ namespace WebProje.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public async Task<IActionResult> Create(Roller rol)
+        //[HttpPost]
+        /*public async Task<IActionResult> Create(Roller rol)
         {
             var roleExist = await roleManager.RoleExistsAsync(rol, RolAdi);
             if (!roleExist)
@@ -31,6 +31,6 @@ namespace WebProje.Controllers
                 var result = await roleManager.CreateAsync(new IdentityRole(roleManager.RolAdi));
             }
             return View();
-        }
+        }*/
     }
 }
