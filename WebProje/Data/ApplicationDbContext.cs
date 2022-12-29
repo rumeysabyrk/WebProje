@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WebProje.Models;
 
 namespace WebProje.Data
 {
@@ -12,5 +13,6 @@ namespace WebProje.Data
             : base(options)
         {
         }
+        public DbSet<WebProje.Models.Roller> Roller { get; set; }
     }
 }
