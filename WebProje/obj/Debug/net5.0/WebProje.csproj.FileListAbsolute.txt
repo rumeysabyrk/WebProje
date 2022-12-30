@@ -168,3 +168,4 @@ C:\Users\rumeysa\source\repos\WebProje\WebProje\obj\Debug\net5.0\Razor\Areas\Ide
 C:\Users\rumeysa\source\repos\WebProje\WebProje\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\rumeysa\source\repos\WebProje\WebProje\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 C:\Users\rumeysa\source\repos\WebProje\WebProje\obj\Debug\net5.0\Razor\Views\Admin\Create.cshtml.g.cs
+C:\Users\rumeysa\source\repos\WebProje\WebProje\obj\Debug\net5.0\Razor\Views\Home\Hayvanlar.cshtml.g.cs

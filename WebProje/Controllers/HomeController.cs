@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace WebProje.Controllers
 {
     public class HomeController : Controller
     {
+        HayvanBarinagiContext context = new HayvanBarinagiContext();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -22,14 +24,10 @@ namespace WebProje.Controllers
         {
             return View();
         }
-
-        public IActionResult Sahiplenme()
+        public async Task<IActionResult> Hayvanlar()
         {
-            return View();
-        }
-        public IActionResult HayvanKayit()
-        {
-            return View();
+            var hayvan = await context.Hayvan.ToListAsync();
+            return View(hayvan);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
