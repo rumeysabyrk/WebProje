@@ -9,8 +9,8 @@ using WebProje.Models;
 namespace WebProje.Migrations
 {
     [DbContext(typeof(HayvanBarinagiContext))]
-    [Migration("20221223132408_Kullanicilar")]
-    partial class Kullanicilar
+    [Migration("20221231121016_Hayvanlar")]
+    partial class Hayvanlar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,7 +40,7 @@ namespace WebProje.Migrations
                     b.ToTable("Admin");
                 });
 
-            modelBuilder.Entity("WebProje.Models.Hayvan", b =>
+            modelBuilder.Entity("WebProje.Models.Hayvanlar", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,6 +51,9 @@ namespace WebProje.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("HayvanResim")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Sahiplenildimi")
                         .HasColumnType("bit");
@@ -63,37 +66,6 @@ namespace WebProje.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Hayvan");
-                });
-
-            modelBuilder.Entity("WebProje.Models.Kullanicilar", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Isim")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Sifre")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("SoyIsim")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Kullanicilar");
                 });
 
             modelBuilder.Entity("WebProje.Models.Sahiplenme", b =>

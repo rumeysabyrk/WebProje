@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebProje.Models
 {
-    public class Hayvan
+    public class Hayvanlar
     {
         [Key]
         public int Id { get; set; }
@@ -14,6 +14,7 @@ namespace WebProje.Models
         [MaxLength(100)]
         [Display(Name = "Hayvan Adı ")]
         public string HayvanAdi { get; set; }
+        public string HayvanResim { get; set; }
         [Required]
         [MaxLength(100)]
         [Display(Name = "Hayvan Türü ")]

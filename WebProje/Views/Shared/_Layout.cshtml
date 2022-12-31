@@ -43,6 +43,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Hayvan" asp-action="Create">Hayvan Kayıt</a>
                         </li>
                     </ul>
+                    <div>
+                        Diller:
+                        <ul>
+                            <li>
+                                <b>Deutsch</b><i class="fade fa-angle-down" aria-hidden="true"></i>
+                                <div class="triangle"></div>
+                                <ul class="Language">
+                                    <li><a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="en-US" class="nav-link"><i class="flag-icon flag-icon-gb"></i>English</a></li>
+                                    <li><a  asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="de-DE"  class="nav-link"><i class="flag-icon flag-icon-de"></i>Deutsch</a></li>
+                                    <li><a  asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="nl-NL"  class="nav-link"><i class="flag-icon flag-icon-nl"></i>Netherland</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

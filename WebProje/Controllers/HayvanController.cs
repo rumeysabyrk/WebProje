@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using WebProje.Models;
 
 namespace WebProje.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class HayvanController : Controller
     {
         HayvanBarinagiContext context = new HayvanBarinagiContext();
@@ -25,9 +27,9 @@ namespace WebProje.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Hayvan hayvan)
+        public async Task<IActionResult> Create(Hayvanlar hayvan)
         {
-            var h = new Hayvan()
+            var h = new Hayvanlar()
             {
                 HayvanAdi = hayvan.HayvanAdi,
                 Tur = hayvan.Tur,
@@ -44,7 +46,7 @@ namespace WebProje.Controllers
             var hayvan = await context.Hayvan.FirstOrDefaultAsync(x => x.Id == id);
             if(hayvan != null)
             {
-                var viewModel = new Hayvan()
+                var viewModel = new Hayvanlar()
                 {
                     Id = hayvan.Id,
                     HayvanAdi = hayvan.HayvanAdi,
@@ -57,7 +59,7 @@ namespace WebProje.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public async Task<IActionResult> Edit( Hayvan model)
+        public async Task<IActionResult> Edit( Hayvanlar model)
         {
             var hayvan = await context.Hayvan.FindAsync(model.Id);
             if(hayvan != null)
@@ -88,7 +90,7 @@ namespace WebProje.Controllers
             return View(hayvan);
         }
         [HttpPost]
-        public async Task<IActionResult> Delete(Hayvan model)
+        public async Task<IActionResult> Delete(Hayvanlar model)
         {
             var hayvan = context.Hayvan.Find(model.Id);
             if(hayvan != null)

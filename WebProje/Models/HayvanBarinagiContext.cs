@@ -10,12 +10,11 @@ namespace WebProje.Models
     public class HayvanBarinagiContext:DbContext
     {
         public DbSet<Admin> Admin { get; set; }
-        public DbSet<Hayvan> Hayvan { get; set; }
+        public DbSet<Hayvanlar> Hayvan { get; set; }
         public DbSet<Sahiplenme> Sahiplenme { get; set; }
-        public DbSet<Kullanicilar> Kullanicilar { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb; Database=HayvanBarinagi;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb; Database=Deneme;Trusted_Connection=True;");
         }
     }
 }

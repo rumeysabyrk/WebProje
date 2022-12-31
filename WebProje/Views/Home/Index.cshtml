@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@inject LanguageService language
 <html>
 <head>
     <style>
@@ -37,6 +38,7 @@
 </head>
 <body>
     <div class="paragraf">
+        <h1>@language.GetKey("welcome")</h1>
         <h1>Hayvanları koruyalım</h1>
         <p>Tek soyu tükenen hayvanlar değil,biz de hayvan sevgisi olmadan tüeniyoruz.<br />
         Bu zamanın kıymetini bilin.Hayvanları koruyun.</p>

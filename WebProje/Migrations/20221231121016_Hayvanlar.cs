@@ -2,7 +2,7 @@
 
 namespace WebProje.Migrations
 {
-    public partial class Hayvan : Migration
+    public partial class Hayvanlar : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

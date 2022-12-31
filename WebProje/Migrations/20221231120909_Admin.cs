@@ -2,10 +2,24 @@
 
 namespace WebProje.Migrations
 {
-    public partial class Kullanicilar : Migration
+    public partial class Admin : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    adminAdi = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    adminSifre = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admin", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Hayvan",
                 columns: table => new
@@ -13,28 +27,13 @@ namespace WebProje.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HayvanAdi = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    HayvanResim = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tur = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Sahiplenildimi = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Hayvan", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Kullanicilar",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Isim = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    SoyIsim = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Sifre = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Kullanicilar", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -55,10 +54,10 @@ namespace WebProje.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Hayvan");
+                name: "Admin");
 
             migrationBuilder.DropTable(
-                name: "Kullanicilar");
+                name: "Hayvan");
 
             migrationBuilder.DropTable(
                 name: "Sahiplenme");
