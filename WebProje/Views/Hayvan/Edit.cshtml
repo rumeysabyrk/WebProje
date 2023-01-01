@@ -3,13 +3,22 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
-
-<h4>Hayvan</h4>
+<style>
+    #form {
+        width: 70%;
+        padding: 20px 40px 20px 40px;
+        background-color: white;
+        opacity: 0.7;
+        position: relative;
+        left: 30%;
+        color: black;
+        margin-bottom: 50px;
+        border-radius:10px;
+    }
+</style>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" id="form">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -32,12 +41,13 @@
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -9,7 +9,6 @@ namespace WebProje.Models
 {
     public class HayvanBarinagiContext:DbContext
     {
-        public DbSet<Admin> Admin { get; set; }
         public DbSet<Hayvanlar> Hayvan { get; set; }
         public DbSet<Sahiplenme> Sahiplenme { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

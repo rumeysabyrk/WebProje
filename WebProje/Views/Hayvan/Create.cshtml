@@ -1,17 +1,22 @@
 ﻿@model WebProje.Models.Hayvanlar
-
-@{
-    ViewData["Title"] = "Create";
-}
-
-<h1>Create</h1>
-
-<h4>Hayvan</h4>
-<hr />
+<style>
+    #hayvan {
+        color: white;
+        position: absolute;
+        left:30%;
+        max-width: 500px;
+    }
+</style>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" id="hayvan">
+        <h1>Hayvan Kayıt</h1>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HayvanResim" class="control-label"></label>
+                <input asp-for="HayvanResim" class="form-control" />
+                <span asp-validation-for="HayvanResim" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="HayvanAdi" class="control-label"></label>
                 <input asp-for="HayvanAdi" class="form-control" />
@@ -26,12 +31,16 @@
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+        <div>
+            <a asp-controller="Sahiplenme" asp-action="List">Sahiplenme İstekleri</a>
+        </div>
     </div>
+   
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

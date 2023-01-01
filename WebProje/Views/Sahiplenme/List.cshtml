@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WebProje.Models.Sahiplenme>
+
+<style>
+    table{
+        background-color:white;
+        opacity:0.7;
+    }
+</style>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HayvanId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soyIsim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dogumTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soru1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soru2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soru3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soru4)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HayvanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soyIsim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dogumTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soru1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soru2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soru3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soru4)
+            </td>
+            <td>
+                <a asp-action="Kabul" asp-route-id="@item.HayvanId">Kabul Et</a> |
+                <a asp-action="Reddet" asp-route-id="@item.HayvanId">Reddet</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

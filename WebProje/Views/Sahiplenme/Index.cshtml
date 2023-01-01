@@ -1,68 +1,77 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<html>
-<head>
-    <style>
-        #form{
-            max-width:40%;
-            position:absolute;
-            left:30%;
-            color:white;
-        }
-    </style>
-</head>
-<body>
-    <div id="form">
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">İsim</label>
-                    <input type="text" class="form-control" id="inputEmail4">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Soyisim</label>
-                    <input type="text" class="form-control" id="inputPassword4">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">TC No</label>
-                    <input type="text" class="form-control" id="inputPassword4">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Doğum Tarihi</label>
-                    <input type="date" class="form-control" id="inputPassword4">
-                </div>
+﻿@model WebProje.Models.Sahiplenme
+<style>
+    #form{
+        width:70%;
+        padding:20px 40px 20px 40px;
+        background-color:white;
+        opacity:0.7;
+        position:relative;
+        left:30%;
+        color:black;
+        margin-bottom:50px;
+    }
+</style>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4" id="form">
+        <form asp-action="Index" asp-route-id="@ViewData["id"]">
+            <h4>Sahiplenme</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="isim" class="control-label"></label>
+                <input asp-for="isim" class="form-control" />
+                <span asp-validation-for="isim" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
+                <label asp-for="soyIsim" class="control-label"></label>
+                <input asp-for="soyIsim" class="form-control" />
+                <span asp-validation-for="soyIsim" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Daha önce hiç hayvan sahiplendiniz mi?</label>
-                <input type="text" class="form-control" id="inputAddress">
+                <label asp-for="TC" class="control-label"></label>
+                <input asp-for="TC" class="form-control" />
+                <span asp-validation-for="TC" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Sahiplendiğiniz hayvana nerde bakacaksınız?</label>
-                <input type="text" class="form-control" id="inputAddress">
+                <label asp-for="dogumTarihi" class="control-label"></label>
+                <input asp-for="dogumTarihi" class="form-control" />
+                <span asp-validation-for="dogumTarihi" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Başka hayvanlar ile beraber yaşayacak mı?</label>
-                <input type="text" class="form-control" id="inputAddress">
+                <label asp-for="adres" class="control-label"></label>
+                <input asp-for="adres" class="form-control" />
+                <span asp-validation-for="adres" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Günde kaç saaat yalnız kalacak?</label>
-                <input type="text" class="form-control" id="inputAddress">
+                <label  class="control-label"> Daha önce hiç hayvan sahiplendiniz mi?</label>
+                <input asp-for="soru1" class="form-control" />
+                <span asp-validation-for="soru1" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Gönder</button>
+            <div class="form-group">
+                <label  class="control-label"> Sahiplendiğiniz hayvana nerede bakacaksınız?</label>
+                <input asp-for="soru2" class="form-control" />
+                <span asp-validation-for="soru2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Başka bir hayvanla beraber yaşayacak mı?</label>
+                <input asp-for="soru3" class="form-control" />
+                <span asp-validation-for="soru3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Günde Kaç saat yanlız kalacak?</label>
+                <input asp-for="soru4" class="form-control" />
+                <span asp-validation-for="soru4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
         </form>
     </div>
-</body>
-</html>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

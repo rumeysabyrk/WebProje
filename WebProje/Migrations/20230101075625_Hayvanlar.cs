@@ -1,25 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebProje.Migrations
 {
-    public partial class Admin : Migration
+    public partial class Hayvanlar : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Admin",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    adminAdi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    adminSifre = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Admin", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Hayvan",
                 columns: table => new
@@ -42,8 +29,16 @@ namespace WebProje.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    KullaniciId = table.Column<int>(type: "int", nullable: false),
-                    HayvanId = table.Column<int>(type: "int", nullable: false)
+                    HayvanId = table.Column<int>(type: "int", nullable: false),
+                    isim = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    soyIsim = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TC = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    dogumTarihi = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    adres = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    soru1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    soru2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    soru3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    soru4 = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,9 +48,6 @@ namespace WebProje.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Admin");
-
             migrationBuilder.DropTable(
                 name: "Hayvan");
 

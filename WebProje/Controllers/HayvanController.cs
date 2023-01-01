@@ -31,6 +31,7 @@ namespace WebProje.Controllers
         {
             var h = new Hayvanlar()
             {
+                HayvanResim = hayvan.HayvanResim,
                 HayvanAdi = hayvan.HayvanAdi,
                 Tur = hayvan.Tur,
                 Sahiplenildimi = false
@@ -48,6 +49,7 @@ namespace WebProje.Controllers
             {
                 var viewModel = new Hayvanlar()
                 {
+                    HayvanResim = hayvan.HayvanResim,
                     Id = hayvan.Id,
                     HayvanAdi = hayvan.HayvanAdi,
                     Tur = hayvan.Tur,
@@ -64,6 +66,7 @@ namespace WebProje.Controllers
             var hayvan = await context.Hayvan.FindAsync(model.Id);
             if(hayvan != null)
             {
+                hayvan.HayvanResim = model.HayvanResim;
                 hayvan.HayvanAdi = model.HayvanAdi;
                 hayvan.Tur = model.Tur;
                 hayvan.Sahiplenildimi = model.Sahiplenildimi;
@@ -101,7 +104,9 @@ namespace WebProje.Controllers
             }
             return RedirectToAction("Index");
         }
+        
 
     }
+    
 
 }
